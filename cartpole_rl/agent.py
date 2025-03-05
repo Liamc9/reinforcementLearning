@@ -1,9 +1,8 @@
-import random
+from stable_baselines3 import PPO
 
-class Agent:
-    def __init__(self, action_space):
-        self.action_space = action_space
-
-    def get_action(self, observation):
-        # For demonstration, select a random action.
-        return self.action_space.sample()
+def create_agent(env):
+    """
+    Create and return a PPO agent using the MlpPolicy with the given environment.
+    """
+    model = PPO("MlpPolicy", env, verbose=1)
+    return model
